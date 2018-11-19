@@ -2,6 +2,19 @@
 (function () {
     function Start() {
         createOcean();
+        createMan();
+    }
+    function createMan() {
+        console.log("Creating a man object");
+        AFRAME.registerComponent('a-man', {
+            defaultComponents: {
+                man: {},
+                rotation: { x: 0, y: 0, z: 0 }
+            },
+            mappings: {
+                color: "man.color"
+            }
+        });
     }
     function createOcean() {
         AFRAME.registerPrimitive('a-ocean', {
