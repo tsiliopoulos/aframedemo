@@ -1,42 +1,56 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-    <!--Scripts needed from A-Frame, etc-->
-    <script src="./node_modules/aframe/build/aframe.js"></script>
+    <head>
+        <!--Scripts needed from A-Frame, etc-->
+        <script src="./node_modules/aframe/build/aframe.js"></script>
+        <script src="./scripts/movement.js"></script>
+        <script src="./Scripts/game.js"></script>
+        <script src="./scripts/camera.js"></script>
+        <!------------------------------------>
 
-    <script src="./Scripts/game.js"></script>
-    <!------------------------------------>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Spider vs White Model Demo</title>
+    </head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Spider vs White Model Demo</title>
-</head>
 <body>
+    <!-- This is the scene for the current game-->
+    <!--The ID can be retrived in JS via document.getElementById("id")-->
+    <a-scene> 
 
-    <a-scene> <!-- This is the scene for the current game-->
-        <a-assets> <!--Models -->
-            <a-asset-item id="man1_obj" src = "models/man/FinalBaseMesh.obj"></a-asset-item>
+        <!--Camera object, don't touch this (unless you're moving the pos of course!)-->
+        
+
+
+        <a-assets> <!--Model sources-->
+            <a-asset-item id="camera1" src="models/man/FinalBaseMesh.obj"></a-asset-item>
+            <a-asset-item id="man1_obj" src = "models/man/man.obj"></a-asset-item>
             <a-asset-item id="spider1_mat" src ="models/spider/Only_Spider_with_Animations_Export.mtl"></a-asset-item>
             <a-asset-item id="spider1_obj" src = "models/spider/Only_Spider_with_Animations_Export.obj"></a-asset-item>>
         </a-assets>
 
         <!--#man1 refers to the 'id' above using the .obj file-->
         <!--3d models, these are imported and are in the "models" folder.-->
-        <a-obj-model src="#man1_obj" scale="0.2 0.2 0.2" rotation="0 180 0" scale=" 0.5 0.5 0.5">
-        </a-obj-model>
-        <a-obj-model src="#spider1_obj" mtl="#spider1_mat" position="0 -1 10"scale="0.1 0.1 0.1">
-        </a-obj-model>
 
-        <!--Camera object, don't touch this (unless you're moving the pos of course!)-->
-        <a-entity position = "0 2 -2">
-            <a-camera></a-camera>
-        </a-entity>
         
+
+        <a-entity class = "mainChar">
+            <a-camera>
+                <a-obj-model id="main" src="#man1_obj" scale="0.2 0.2 0.2" rotation="0 180 0" position="0 2.2 0">
+            </a-obj-model>
+            </a-camera>
+        </a-entity>
+
+        <a-entity class="spiderChar">
+            <a-obj-model id="spider" src="#spider1_obj" mtl="#spider1_mat" position="0 -1 10"scale="0.1 0.1 0.1">
+            </a-obj-model>
+        </a-entity>
+
+        
+
+
         <!--Primitives, like boxes, etc. These are the boring ones-->
-        <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-        <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-        <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
         <a-plane position="0 0 -4" rotation="-90 0 0" width="400" height="400" color="red"></a-plane>
         <a-sky color="#ECECEC"></a-sky>
     </a-scene>
