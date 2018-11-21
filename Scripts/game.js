@@ -4,6 +4,8 @@
         createOcean();
         createMan();
     }
+
+
     function createMan() {
         console.log("Creating a man object");
         AFRAME.registerComponent('a-man', {
@@ -16,6 +18,7 @@
             }
         });
     }
+
     function createOcean() {
         AFRAME.registerPrimitive('a-ocean', {
             // Attaches the `ocean` component by default.
