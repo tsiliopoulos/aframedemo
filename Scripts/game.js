@@ -1,4 +1,6 @@
 // Immediately Invoked Function Expression
+
+//Testing types
 (function () {
     function Start() {
         createOcean();
