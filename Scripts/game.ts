@@ -20,11 +20,6 @@
         });
     }
 
-    function moveObject(el){
-        el.object3D.position.set(1,2,3);
-        el.object3D.position.x += 1;
-    }
-
     function createOcean() {
         AFRAME.registerPrimitive('a-ocean', {
             // Attaches the `ocean` component by default.

@@ -3,17 +3,22 @@
 
 (function moveCamera(){
     
-    document.addEventListener('keydown', function(event) {
-       /* var camera = document.getElementById("main_camera");
-        var pos = document.getElementById("main").getAttribute("position");
-        var x = pos.getComponent(0);
-        var y = pos.getComponent(1);
-        var z = pos.getComponent(2);
-        console.log("X IS " + x);
-        console.log(pos);
-        camera.setAttribute()
+    document.addEventListener('keydown', function(event) { 
         
-        //.setAttribute("position", pos)*/
+        var key = event.keyCode;
+        if(key == 87){
+            //main_model.setAttribute("position", )
+            console.log("pressing w");
+       }
+       else if(key == 68){
+           console.log("pressing d");
+       }
+       else if(key == 65){
+           console.log("presing a");
+       }
+       else if(key == 83){
+           console.log("pressing d");
+       }
     });
 
 })();
